@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>State of Data Brasil 2024/25 — o que os dados dizem</title>
+<meta name="description" content="Análise independente das 5.217 respostas da pesquisa State of Data Brazil 2024/2025 (Data Hackers): salários, trabalho remoto, gênero e raça, IA generativa, stack e mercado.">
+<meta property="og:title" content="State of Data Brasil 2024/25 — o que os dados dizem">
+<meta property="og:description" content="Salário, remoto, gênero e raça, IA generativa, stack e mercado: 7 histórias extraídas das 5.217 respostas da pesquisa da Data Hackers.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232a78d6'/%3E%3Crect x='7' y='17' width='4' height='8' rx='1' fill='white'/%3E%3Crect x='14' y='11' width='4' height='14' rx='1' fill='white'/%3E%3Crect x='21' y='6' width='4' height='19' rx='1' fill='white'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js" crossorigin="anonymous"></script>
+<script src="data.js"></script>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="#top">State of Data <span>BR 2024/25</span></a>
+  <nav class="nav" aria-label="Seções">
+    <a href="#salario">Salário</a>
+    <a href="#remoto">Remoto</a>
+    <a href="#diversidade">Gênero & raça</a>
+    <a href="#mercado">Mercado</a>
+    <a href="#ia">IA generativa</a>
+    <a href="#stack">Stack</a>
+    <a href="#gestores">Gestores</a>
+    <a href="#perfil">Quem respondeu</a>
+    <a href="#metodo">Método</a>
+  </nav>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Alternar tema claro/escuro" title="Tema">◐</button>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <p class="eyebrow">Análise independente · pesquisa Data Hackers · edição 2024/2025</p>
+  <h1>O que <span data-k="meta.n" data-fmt="int">5.217</span> profissionais de dados contaram sobre o Brasil</h1>
+  <p class="lede">Salário, trabalho remoto, gênero e raça, IA generativa, stack e mercado. Sete histórias que saem das respostas, com os números abertos e o código reproduzível.</p>
+  <div class="kpis">
+    <div class="kpi"><div class="kpi-v" data-k="kpi.mediana_salarial" data-fmt="faixa">R$ 8–12 mil</div><div class="kpi-l">faixa salarial mediana (quem trabalha)</div></div>
+    <div class="kpi"><div class="kpi-v" data-k="kpi.pct_sai_se_voltar" data-fmt="pct"></div><div class="kpi-l">procurariam outra vaga se obrigados a voltar ao presencial</div></div>
+    <div class="kpi"><div class="kpi-v" data-k="kpi.pct_mulheres" data-fmt="pct"></div><div class="kpi-l">são mulheres; na diretoria, <b data-k="kpi.pct_mulheres_diretoria" data-fmt="pct"></b></div></div>
+    <div class="kpi"><div class="kpi-v" data-k="kpi.pct_usa_ia" data-fmt="pct"></div><div class="kpi-l">usam IA generativa no trabalho; a empresa paga para <b data-k="kpi.pct_empresa_paga_ia" data-fmt="pct"></b></div></div>
+    <div class="kpi"><div class="kpi-v" data-k="kpi.pct_buscando" data-fmt="pct"></div><div class="kpi-l">estão buscando emprego ativamente</div></div>
+    <div class="kpi"><div class="kpi-v" data-k="kpi.sal_exterior" data-fmt="brl"></div><div class="kpi-l">média de quem mora no Brasil e trabalha remoto para o exterior (CLT: <b data-k="kpi.sal_clt" data-fmt="brl"></b>)</div></div>
+  </div>
+</section>
+
+<!-- ===================== SALÁRIO ===================== -->
+<section class="chapter" id="salario">
+  <div class="chapter-head">
+    <span class="num">01</span>
+    <h2>Salário: a fronteira paga mais que o cargo</h2>
+    <p>Senioridade e tempo de experiência explicam a maior parte da variação salarial. Mas o salto mais brusco não é entre cargos: é entre quem é pago em real e quem é pago em dólar. Profissionais que moram no Brasil e trabalham remoto para empresas estrangeiras ganham em média <b data-k="kpi.sal_exterior" data-fmt="brl"></b>, contra <b data-k="kpi.sal_clt" data-fmt="brl"></b> no CLT. Já o 100% presencial é o modelo que menos paga: <b data-k="kpi.sal_presencial" data-fmt="brl"></b> em média, contra <b data-k="kpi.sal_remoto" data-fmt="brl"></b> no 100% remoto.</p>
+    <p class="note">Salários são faixas na pesquisa. Usamos o ponto médio de cada faixa para calcular médias (ex.: “de R$ 8.001 a R$ 12.000” vira R$ 10.000; “acima de R$ 40.001” vira R$ 45.000). Base: <span data-k="meta.n_trabalhando" data-fmt="int"></span> pessoas empregadas (CLT, PJ, servidor, exterior, freelancer).</p>
+  </div>
+  <div class="grid">
+    <figure class="card wide" data-chart="sal_situacao"></figure>
+    <figure class="card" data-chart="sal_cargo"></figure>
+    <figure class="card" data-chart="sal_cargo_nivel"></figure>
+    <figure class="card" data-chart="sal_experiencia"></figure>
+    <figure class="card" data-chart="sal_modelo"></figure>
+    <figure class="card" data-chart="sal_distribuicao_nivel"></figure>
+    <figure class="card" data-chart="sal_uf"></figure>
+    <figure class="card" data-chart="sal_ensino"></figure>
+    <figure class="card" data-chart="sal_gestao"></figure>
+  </div>
+</section>
+
+<!-- ===================== REMOTO ===================== -->
+<section class="chapter" id="remoto">
+  <div class="chapter-head">
+    <span class="num">02</span>
+    <h2>Remoto: a volta ao escritório é uma guerra perdida</h2>
+    <p><b data-k="kpi.pct_remoto" data-fmt="pct"></b> trabalham 100% remoto e só <b data-k="kpi.pct_presencial" data-fmt="pct"></b> estão 100% presenciais. Quando perguntados sobre o modelo ideal, <b data-k="kpi.pct_quer_remoto_ou_hibrido" data-fmt="pct"></b> escolhem remoto ou híbrido. E <b data-k="kpi.pct_sai_se_voltar" data-fmt="pct"></b> dizem que procurariam outra vaga se a empresa exigisse presença total. Entre quem já está 100% remoto, esse número passa de 90%.</p>
+    <p>A satisfação acompanha: <span data-k="remoto.sat_remoto" data-fmt="pct"></span> dos remotos estão satisfeitos com o emprego, contra <span data-k="remoto.sat_presencial" data-fmt="pct"></span> dos presenciais. Vale a ressalva: o presencial concentra juniores e salários mais baixos, então parte dessa diferença é senioridade, não só o modelo.</p>
+  </div>
+  <div class="grid">
+    <figure class="card" data-chart="rem_atual_ideal"></figure>
+    <figure class="card" data-chart="rem_atitude"></figure>
+    <figure class="card wide" data-chart="rem_ideal_por_atual"></figure>
+    <figure class="card" data-chart="rem_satisfacao"></figure>
+    <figure class="card" data-chart="rem_nivel"></figure>
+  </div>
+</section>
+
+<!-- ===================== DIVERSIDADE ===================== -->
+<section class="chapter" id="diversidade">
+  <div class="chapter-head">
+    <span class="num">03</span>
+    <h2>Gênero e raça: o funil estreita a cada degrau</h2>
+    <p>Mulheres são <b data-k="kpi.pct_mulheres" data-fmt="pct"></b> dos respondentes. São <b data-k="kpi.pct_mulheres_junior" data-fmt="pct"></b> dos juniores, <b data-k="kpi.pct_mulheres_senior" data-fmt="pct"></b> dos seniores, <b data-k="kpi.pct_mulheres_gestao" data-fmt="pct"></b> de quem gere pessoas e <b data-k="kpi.pct_mulheres_diretoria" data-fmt="pct"></b> dos diretores e VPs. A diferença salarial segue a mesma curva: no júnior não existe (mulheres ganham até um pouco mais), no pleno é pequena, e no sênior as mulheres ganham <b data-k="div.gap_senior" data-fmt="pctabs"></b> a menos que os homens.</p>
+    <p>Pessoas pretas são <span data-k="div.pretos_junior" data-fmt="pct"></span> dos juniores e <span data-k="div.pretos_diretor" data-fmt="pct"></span> da diretoria. Entre as mulheres que responderam ao bloco de impacto, <span data-k="div.mulher_genero" data-fmt="pct"></span> acreditam que o gênero prejudicou sua experiência profissional; entre pessoas pretas, <span data-k="div.preta_raca" data-fmt="pct"></span> apontam a cor/raça.</p>
+  </div>
+  <div class="grid">
+    <figure class="card" data-chart="div_mulheres_estagio"></figure>
+    <figure class="card" data-chart="div_raca_estagio"></figure>
+    <figure class="card" data-chart="div_gap_nivel"></figure>
+    <figure class="card" data-chart="div_gap_exp"></figure>
+    <figure class="card" data-chart="div_gap_cargo"></figure>
+    <figure class="card" data-chart="div_gap_raca_nivel"></figure>
+    <figure class="card" data-chart="div_prejuizo"></figure>
+    <figure class="card" data-chart="div_aspectos"></figure>
+  </div>
+</section>
+
+<!-- ===================== MERCADO ===================== -->
+<section class="chapter" id="mercado">
+  <div class="chapter-head">
+    <span class="num">04</span>
+    <h2>Mercado: satisfeitos, mas de olho na porta</h2>
+    <p><b data-k="kpi.pct_satisfeito" data-fmt="pct"></b> estão satisfeitos com o emprego atual, mas <b data-k="kpi.pct_buscando" data-fmt="pct"></b> estão buscando ativamente e <b data-k="kpi.pct_buscando_so_exterior" data-fmt="pct"></b> buscam apenas vagas fora do Brasil. Salário é o motivo número 1 de insatisfação (<span data-k="kpi.pct_insatisfeito_salario" data-fmt="pct"></span> dos insatisfeitos) e o critério número 1 para escolher o próximo emprego (<span data-k="kpi.pct_criterio_salario" data-fmt="pct"></span>), seguido de flexibilidade remota (<span data-k="kpi.pct_criterio_remoto" data-fmt="pct"></span>).</p>
+    <p><b data-k="kpi.pct_layoff" data-fmt="pct"></b> viram layoffs na própria empresa em 2024; <span data-k="kpi.pct_layoff_afetado" data-fmt="pct"></span> foram afetados diretamente. Tecnologia e alimentício foram os setores mais atingidos; o setor público, o menos.</p>
+  </div>
+  <div class="grid">
+    <figure class="card" data-chart="mer_sat_salario"></figure>
+    <figure class="card" data-chart="mer_busca_salario"></figure>
+    <figure class="card wide" data-chart="mer_planos_sat"></figure>
+    <figure class="card" data-chart="mer_motivos"></figure>
+    <figure class="card" data-chart="mer_criterios"></figure>
+    <figure class="card" data-chart="mer_layoff_setor"></figure>
+    <figure class="card" data-chart="mer_entrevistas"></figure>
+  </div>
+</section>
+
+<!-- ===================== IA ===================== -->
+<section class="chapter" id="ia">
+  <div class="chapter-head">
+    <span class="num">05</span>
+    <h2>IA generativa: todo mundo usa, quase ninguém paga</h2>
+    <p><b data-k="kpi.pct_usa_ia" data-fmt="pct"></b> usam alguma ferramenta de IA generativa para produtividade. Mas <b data-k="ia.gratis" data-fmt="pct"></b> usam só versões gratuitas, e a empresa paga a ferramenta para apenas <b data-k="kpi.pct_empresa_paga_ia" data-fmt="pct"></b>. Cientistas de dados lideram a adoção paga; analistas de dados são os que mais ficam no plano gratuito. Nos gestores, <span data-k="ia.prio_top2" data-fmt="pct"></span> dizem que IA generativa está entre as principais prioridades da empresa, e as barreiras mais citadas são falta de entendimento dos casos de uso, falta de expertise e preocupações com segurança.</p>
+    <p>Um dado curioso: dentro do mesmo nível, quem tem ferramenta paga (pela empresa ou do próprio bolso) ganha em média 10% a 25% a mais do que quem usa só a versão gratuita. É correlação, não causa: pode ser que empresas que pagam mais também paguem ferramentas, ou que quem ganha mais invista mais.</p>
+  </div>
+  <div class="grid">
+    <figure class="card" data-chart="ia_uso"></figure>
+    <figure class="card" data-chart="ia_por_atuacao"></figure>
+    <figure class="card" data-chart="ia_por_nivel"></figure>
+    <figure class="card" data-chart="ia_por_setor"></figure>
+    <figure class="card wide" data-chart="ia_prioridade"></figure>
+    <figure class="card" data-chart="ia_barreiras"></figure>
+    <figure class="card" data-chart="ia_empresa"></figure>
+    <figure class="card wide" data-chart="ia_salario_perfil"></figure>
+  </div>
+</section>
+
+<!-- ===================== STACK ===================== -->
+<section class="chapter" id="stack">
+  <div class="chapter-head">
+    <span class="num">06</span>
+    <h2>Stack: SQL e Python são universais, a cloud depende do setor</h2>
+    <p>SQL (<span data-k="stack.sql" data-fmt="pct"></span>) e Python (<span data-k="stack.python" data-fmt="pct"></span>) aparecem no dia a dia de quase todo mundo; R ficou em <span data-k="stack.r" data-fmt="pct"></span>. AWS é a cloud mais usada (<span data-k="stack.aws" data-fmt="pct"></span>) e a preferida, mas o setor define a escolha: no varejo o GCP domina, em bancos a AWS, na indústria Azure e GCP dividem, e no setor público <span data-k="stack.publico_onprem" data-fmt="pct"></span> ainda rodam on-premise. <span data-k="stack.multi_cloud_pct" data-fmt="pct"></span> usam duas ou mais das três grandes clouds.</p>
+    <p>Em BI, o Power BI é hegemônico: <span data-k="stack.powerbi" data-fmt="pct"></span> usam e <span data-k="stack.powerbi_pref" data-fmt="pct"></span> preferem. Na engenharia de dados, Airflow e Databricks são os orquestradores que importam; em qualidade de dados, dbt e Great Expectations lideram um campo ainda pequeno.</p>
+  </div>
+  <div class="grid">
+    <figure class="card" data-chart="stk_linguagens"></figure>
+    <figure class="card" data-chart="stk_ling_atuacao"></figure>
+    <figure class="card" data-chart="stk_cloud"></figure>
+    <figure class="card wide" data-chart="stk_cloud_setor"></figure>
+    <figure class="card" data-chart="stk_bancos"></figure>
+    <figure class="card" data-chart="stk_bi"></figure>
+    <figure class="card" data-chart="stk_etl"></figure>
+    <figure class="card" data-chart="stk_dw"></figure>
+    <figure class="card" data-chart="stk_lake"></figure>
+    <figure class="card" data-chart="stk_dq"></figure>
+    <figure class="card" data-chart="stk_ds_tecnicas"></figure>
+    <figure class="card" data-chart="stk_ds_tech"></figure>
+    <figure class="card" data-chart="stk_tempo_de"></figure>
+    <figure class="card" data-chart="stk_tempo_da"></figure>
+    <figure class="card" data-chart="stk_tempo_ds"></figure>
+  </div>
+</section>
+
+<!-- ===================== GESTORES ===================== -->
+<section class="chapter" id="gestores">
+  <div class="chapter-head">
+    <span class="num">07</span>
+    <h2>Gestores: o desafio é expectativa, não tecnologia</h2>
+    <p><span data-k="gestores.n" data-fmt="int"></span> respondentes lideram times de dados. Os desafios mais citados são gerenciar a expectativa das áreas, dividir o tempo entre entrega técnica e gestão, gerar valor para o negócio e organizar informação com qualidade. Processar grande volume de dados e manter modelos em produção ficam no fim da lista: o gargalo é humano e organizacional.</p>
+  </div>
+  <div class="grid">
+    <figure class="card wide" data-chart="ges_desafios"></figure>
+    <figure class="card" data-chart="ges_tamanho"></figure>
+    <figure class="card" data-chart="ges_cargos"></figure>
+  </div>
+</section>
+
+<!-- ===================== PERFIL ===================== -->
+<section class="chapter" id="perfil">
+  <div class="chapter-head">
+    <span class="num">08</span>
+    <h2>Quem respondeu</h2>
+    <p>Idade mediana de <span data-k="meta.idade_mediana" data-fmt="int"></span> anos, <span data-k="kpi.pct_sudeste" data-fmt="pct"></span> no Sudeste, <span data-k="kpi.pct_pos" data-fmt="pct"></span> com pós-graduação, mestrado ou doutorado. A amostra é auto-selecionada (quem segue a comunidade Data Hackers), então tende a super-representar profissionais já inseridos e conectados. Leia os números como retrato dessa comunidade, não do país inteiro.</p>
+  </div>
+  <div class="grid">
+    <figure class="card" data-chart="per_idade"></figure>
+    <figure class="card" data-chart="per_regiao"></figure>
+    <figure class="card" data-chart="per_atuacao"></figure>
+    <figure class="card" data-chart="per_cargo"></figure>
+    <figure class="card" data-chart="per_formacao"></figure>
+    <figure class="card" data-chart="per_setor"></figure>
+    <figure class="card" data-chart="per_tamanho"></figure>
+    <figure class="card" data-chart="per_situacao"></figure>
+  </div>
+</section>
+
+<!-- ===================== MÉTODO ===================== -->
+<section class="chapter method" id="metodo">
+  <div class="chapter-head">
+    <span class="num">—</span>
+    <h2>Método e fonte</h2>
+    <ul>
+      <li><b>Fonte.</b> <a href="https://www.kaggle.com/datasets/datahackers/state-of-data-brazil-20242025" target="_blank" rel="noopener">State of Data Brazil 2024/2025</a>, pesquisa da Data Hackers, publicada no Kaggle. <span data-k="meta.n" data-fmt="int"></span> respostas e 403 colunas.</li>
+      <li><b>Salários.</b> A pesquisa coleta faixas. Médias e percentis usam o ponto médio de cada faixa (a última, “acima de R$ 40 mil”, vira R$ 45 mil). Análises salariais consideram só quem está trabalhando (CLT, PJ, servidor público, empresa estrangeira, freelancer).</li>
+      <li><b>Bases.</b> Percentuais sobre perguntas de múltipla escolha usam como denominador quem respondeu àquele bloco; cada gráfico mostra o “n”. Grupos com menos de 30 respostas foram omitidos (25 em comparações de gênero e raça por nível).</li>
+      <li><b>Correlação ≠ causa.</b> Diferenças entre grupos (modelo de trabalho, uso de IA paga) podem refletir senioridade, setor ou tamanho de empresa. Onde foi possível, a comparação é feita dentro do mesmo nível.</li>
+      <li><b>Reprodutível.</b> O script <code>analysis/build_data.py</code> baixa o dataset via kagglehub e gera todos os agregados deste site (<code>docs/data.js</code>). Código no <a id="repoLink" href="https://github.com/iosbilario/state-of-data-brasil-2024" target="_blank" rel="noopener">GitHub</a>.</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <p>Análise e site por <a href="https://github.com/iosbilario" target="_blank" rel="noopener">iosbilario</a> · dados © Data Hackers · gerado em <span data-k="meta.gerado_em"></span>. Todos os gráficos têm uma visão em tabela (botão “Tabela”).</p>
+</footer>
+
+<div class="tip" id="tip" role="status" aria-live="polite"></div>
+<script src="app.js"></script>
+</body>
+</html>
